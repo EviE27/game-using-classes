@@ -6,18 +6,22 @@
 # version: 1
 #####################################################################
 # move and seach
-class Movement():
-    #player_position = []
-    movement_options = ['f', 'b', 'u', 'd']
-    def __init__(self, y, x  ):
-        self.y = y
-        self.x = x
-        self.min_h = 0
-        self.max_h = 2
-        self.min_w = 0
-        self.max_w = 3
-        self.victory = False
 
+
+charactor_posiion = [0, 0]
+#location = map.tile_at(x, y)
+
+class Player():
+   
+    
+    
+    def __init__(self):
+        self.y = 0
+        self.x = 0
+        self.inventory = []
+        self.victory = False
+    
+"""
     def move(self, dx, dy):
         self.x =+ dx
         self.y =- dy
@@ -33,6 +37,17 @@ class Movement():
 
     def down(self):
         self.move(dx=+0, dy=+1)
+
+
+    
+
+#if location = object location print object when seached.
+#class Search(Player):
+    
+    
+    """
+    
+    
     
         
         

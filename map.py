@@ -1,13 +1,40 @@
 from tabulate import tabulate
-#map_file = 'map.txt'
+
+import player
+
 
 class Map_tile:
+    
     def __init__(self, x, y, description):
         self.x = x
         self.y = y
-        self.description = description
+        self.description = description 
 
-Start_tile = Map_tile(0,0,"""You have been hierd to break into the the enemy base.
+
+    def move(self, dx, dy):
+        self.x =+ dx
+        self.y =- dy
+    
+    def forward(self):
+        self.move(dx=+1, dy=+0)
+    
+    def backward(self):
+        self.move(dx=-1, dy=+0)
+    
+    def up(self):
+        self.move(dx=+0, dy=-1)
+    
+    def down(self):
+        self.move(dx=+0, dy=+1)
+
+    def location_(self):
+        player.charactor_posiion.append([self.x][self.y])
+        
+
+
+        
+    
+Start_tile = Map_tile(0, 0,"""You have been hierd to break into the the enemy base.
 Your goal is to steal their plans on how they are going to take over the city.
 Get the plans and excape on the boat at the docs without triping any allarms
 or getting caught. You will be given action option type the corosponing letter 
@@ -45,13 +72,28 @@ empty = Map_tile(None, None, "There is nothing here" )
 
 
 
+functional_map = [[Start_tile, Side_tile, empty, empty],
+      [empty, Ware_house, empty, Office ],
+      [Celler_entrence, Celler, empty, empty]  
+      ]
+
+
 map = [['Start_tile', 'Side_tile', 'empty', 'empty'],
       ['empty', 'Ware_house', 'empty', 'Office' ],
       ['Celler_entrence', 'Celler', 'empty', 'empty']   
       ]
+"""
+def tile_at(x, y):
+    if x < 0 or y < 0:
+        return None
+    try:
+        return map[x,y]
+    except:
+        return None
 
+"""
 class Map:
-    #map_file.txt
+   
     def __init__(self, map_file):
         self.map_file = map_file
     def open_map(self):

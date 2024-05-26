@@ -16,10 +16,10 @@ class Keys():
         self.name = name
         self.type = type
         self.location = [None] #idk about his might change back to[x,y]
-        self.key = keypoie
+        self.key = key
 
     def take(self):
-        if self.type == key
+        if self.type == key:
             self.location = None
             my_bag.append(self.name)
 
