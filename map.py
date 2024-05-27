@@ -12,25 +12,28 @@ class Map_tile:
 
 
     def move(self, dx, dy):
-        self.x =+ dx
-        self.y =- dy
+        self.x += dx
+        self.y += dy
+        
+    def location_(self):
+        player.Player.charactor_position =([self.x][self.y])
     
     def forward(self):
-        self.move(dx=+1, dy=+0)
+        self.move(dx =+ 1, dy =+ 0)
+        self.location_()
+       
     
     def backward(self):
         self.move(dx=-1, dy=+0)
+        self.location_()
     
     def up(self):
         self.move(dx=+0, dy=-1)
+        self.location_()
     
     def down(self):
         self.move(dx=+0, dy=+1)
-
-    def location_(self):
-        player.charactor_posiion.append([self.x][self.y])
-        
-
+        self.location_()
 
         
     

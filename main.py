@@ -2,61 +2,69 @@
 import map
 import player
 
-position = player.charactor_posiion
+position = player.Player.charactor_position
 x, y = position
+position = x, y
 #player_ = player.Player()
-   #map_ = map.Map_tile(x=0, y=0, description="")
+map_ = map.Map_tile(x, y, description="")
+ 
    #while not player_.victory: 
 
 def play():
-   print(player.charactor_posiion)
-   print(map.functional_map[x][y].description)
-   player_action()
+   victory = False 
+   while not victory:
+       print(player.Player.charactor_position)
+       print(map.functional_map[x][y].description)
+       #find_available_action(x, y)
+       player_action()
 
+
+
+def action_saver(action_dic, key, action, name):
+    action_dic[key.lower()] = action
+    print("{}: {}".format(key, name))
+    
 
 def find_available_action(x, y):
     x, y = position
-    x += 0
-    y += 0
-    map_ = map.Map_tile(x, y, description="")
+    #map_ = map.Map_tile(x, y, description="")
     actions = {}
-    try:
-        if player.charactor_posiion[x] < 3:
-            action_saver(actions, "F", map_.forward(), "forwards")
-           
-        if player.charactor_posiion[x] > 0:
-            action_saver(actions, "B", map_.backward(), "backward")
-        else:
-            pass
-        if player.charactor_posiion[y] < 2:
-            action_saver(actions, "D", map_.down(), "down")
-           
-        if player.charactor_posiion[y] > 0:
-            action_saver(actions, "U", map_.up(), "up")
-
-        return actions
-    except:
-        pass
     
+    if player.Player.charactor_position[x] < 3:
+        action_saver(actions, "F", map_.forward, "forwards")
        
-        
-def action_saver(action_dic, key, action, name):
-    action_dic[key.lower] = action
-    print("{}: {}".format(key, name))
-      
+    if player.Player.charactor_position[x] > 0:
+        action_saver(actions, "B", map_.backward, "backward")
+    
+    if player.Player.charactor_position[y] < 2:
+        action_saver(actions, "D", map_.down, "down")
+       
+    if player.Player.charactor_position[y] >= 1:
+        action_saver(actions, "U", map_.up, "up")
+
+    return actions
+
+    
       
 def player_action():
-   print("chose action:")
-   action = None
-   while not action:
-      available_action = find_available_action(x, y)
-      action_input =input("action: ")
-      action = available_action.get(action_input)
-   return action
-      
-   
-      
-   
+    print("chose action:")
+    action = None
+    while action is None:
+        available_action = find_available_action(x, y)
+        action_input = input("action: ").upper()
+        action = available_action.get(action_input)
+        if action is not None:
+            if action_input == 'f':
+                map_.forward(dx=1 , dy=0)
+            elif action_input == 'b':
+                map_.backward()
+            elif action_input == 'd':
+                map_.down()
+            elif action_input == 'u':
+                map_.up()
+        return action
+        #else:
+           # print("not Valid")
 
 
     

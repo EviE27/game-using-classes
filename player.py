@@ -8,7 +8,7 @@
 # move and seach
 
 
-charactor_posiion = [0, 0]
+
 #location = map.tile_at(x, y)
 
 class Player():
@@ -21,10 +21,13 @@ class Player():
         self.inventory = []
         self.victory = False
     
-"""
+
     def move(self, dx, dy):
-        self.x =+ dx
-        self.y =- dy
+        self.x += dx
+        self.y -= dy
+
+    charactor_position = [0, 0]
+    """
 
     def forward(self):
         self.move(dx=+1, dy=+0)
