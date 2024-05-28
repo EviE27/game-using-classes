@@ -2,76 +2,67 @@
 import map
 import player
 
-position = player.Player.charactor_position
-x, y = position
-position = x, y
-#player_ = player.Player()
-map_ = map.Map_tile(x, y, description="")
- 
-   #while not player_.victory: 
+Dora = player.Player(0, 0)
+port = map.Map('map.txt', map.port_map, 4, 3)
+object = objects.Keys(location)
 
 def play():
    victory = False 
    while not victory:
-       print(player.Player.charactor_position)
-       print(map.functional_map[x][y].description)
+       print(Dora.x, Dora.y)
+       print(port.map[Dora.x][Dora.y].description)
        #find_available_action(x, y)
-       player_action()
+       player_action(Dora, port)
 
 
 
-def action_saver(action_dic, key, action, name):
-    action_dic[key.lower()] = action
+def action_saver(key, name):
     print("{}: {}".format(key, name))
     
 
-def find_available_action(x, y):
-    x, y = position
-    #map_ = map.Map_tile(x, y, description="")
-    actions = {}
-    
-    if player.Player.charactor_position[x] < 3:
-        action_saver(actions, "F", map_.forward, "forwards")
-       
-    if player.Player.charactor_position[x] > 0:
-        action_saver(actions, "B", map_.backward, "backward")
-    
-    if player.Player.charactor_position[y] < 2:
-        action_saver(actions, "D", map_.down, "down")
-       
-    if player.Player.charactor_position[y] >= 1:
-        action_saver(actions, "U", map_.up, "up")
-
-    return actions
-
+def find_available_action(Char, Map):
+    if Char.x < Map.map_width:
+        action_saver("F", "forward")
+    if Char.x > 0:
+        action_saver("B", "backward")
+    if Char.y < 2:
+        action_saver("D",  "down")
+    if Char.y >= 1:
+        action_saver("U", "up")
     
       
-def player_action():
+def player_action(Char, Map):
     print("chose action:")
-    action = None
-    while action is None:
-        available_action = find_available_action(x, y)
+    action = True
+    while action:
+        find_available_action(Char, Map)
         action_input = input("action: ").upper()
-        action = available_action.get(action_input)
-        if action is not None:
-            if action_input == 'f':
-                map_.forward(dx=1 , dy=0)
-            elif action_input == 'b':
-                map_.backward()
-            elif action_input == 'd':
-                map_.down()
-            elif action_input == 'u':
-                map_.up()
-        return action
-        #else:
-           # print("not Valid")
+        if action_input == 'F':
+            if Char.x < 3:
+                    Char.move(Char.x+1, Char.y)
+                    action = False
+        elif action_input == 'B':
+            if Char.x > 0:
+                Char.move(Char.x-1, Char.y)
+                action = False
+        elif action_input == 'D':
+            if Char.y < 2:
+                Char.move(Char.x, Char.y + 1)
+                action = False
+        elif action_input == 'U':
+            if Char.y >= 1:
+                Char.move(Char.x, Char.y-1)
+                action = False
 
 
+def seach(Char):
+    if Dora = 
+    
     
     
 play()
-map.map_f.open_map()
-map.map_f.read_map()
+port.open_map()
+port.read_map()
 
 
 

@@ -12,11 +12,11 @@
 import map
 
 class Keys():
-    def __init__(self, name, type, location, key):
+    def __init__(self, name, location ,type, key):
         self.name = name
         self.type = type
-        self.location = [None] #idk about his might change back to[x,y]
         self.key = key
+        self.location = location
 
     def take(self):
         if self.type == key:
@@ -31,6 +31,8 @@ silver_lock = Keys(silver_lock, lock, [map.Celler], silver_key)
 gold_lock = Keys(gold_lock, lock, [map.Celler], gold_key)
 gray_lock = Keys(gray_lock, lock, [map.Celler_entrence], gray_key)
 
+    
+
 
 
 
@@ -39,9 +41,9 @@ class Locks(Keys):
     
     def unlocked(self,):
         unlock = False
-        if self.type == lock:
-            if self.key in player.my_bag():
-                unlock = True
+       # if self.type == lock:
+            #if self.key in player.my_bag():
+               # unlock = True
 
         
         
