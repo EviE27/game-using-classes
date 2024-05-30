@@ -7,11 +7,8 @@
 #####################################################################
 # move and seach
 
-
-
-#location = map.tile_at(x, y)
-
 class Player():
+    #Dora = player(0,0)
     
     def __init__(self, x, y):
         self.y = y
@@ -24,28 +21,7 @@ class Player():
         self.x = newx
         self.y = newy
         
-'''
-    def move(self, dx, dy):
-        self.x += dx
-        self.y += dy
 
-    def forward(self):
-        self.move(dx=+1, dy=+0)
-
-    def backward(self):
-        self.move(dx=-1, dy=+0)
-
-    def up(self):
-        self.move(dx=+0, dy=-1)
-
-    def down(self):
-        self.move(dx=+0, dy=+1)
-'''
-
-    
-
-#if location = object location print object when seached.
-#class Search(Player):
     
     
     

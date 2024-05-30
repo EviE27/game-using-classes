@@ -1,10 +1,8 @@
 from tabulate import tabulate
 
-import player
-
 
 class Map_tile:
-    
+
     def __init__(self, name, x, y, description):
         self.name = name
         self.x = x
@@ -12,34 +10,11 @@ class Map_tile:
         self.description = description 
 
 
-    '''def move(self, dx, dy):
-        self.x += dx
-        self.y += dy
-        #location = [self.x , self.y] '''
-        
     def location_(self):
         return self.description
-    
-    '''def forward(self):
-        self.move(dx =+ 1, dy =+ 0)
-        self.location_()
-       
-    
-    def backward(self):
-        self.move(dx=-1, dy=+0)
-        self.location_()
-    
-    def up(self):
-        self.move(dx=+0, dy=-1)
-        self.location_()
-    
-    def down(self):
-        self.move(dx=+0, dy=+1)
-        self.location_()
-        '''
 
-        
-    
+
+
 Start_tile = Map_tile("", 0, 0,"""You have been hierd to break into the the enemy base.
 Your goal is to steal their plans on how they are going to take over the city.
 Get the plans and excape on the boat at the docs without triping any allarms

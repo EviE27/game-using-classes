@@ -11,25 +11,28 @@
 #from map import Celler_entrence
 import map
 
+
 class Keys():
-    def __init__(self, name, location ,type, key):
+    #port_map = map.Map()
+    def __init__(self, name, type, x, key):
         self.name = name
         self.type = type
         self.key = key
-        self.location = location
+        self.x = x
+        
 
     def take(self):
-        if self.type == key:
+        if self.type == 'key':
             self.location = None
-            my_bag.append(self.name)
+            #my_bag.append(self.name)
 
-#add where house and ofice location 
-silver_key = Keys(silver_key, key, [map.Ware_house], None )
-gold_key = Keys(gold_key, key, [map.Office], None)
-gray_key = Keys(gray_key, key, [map.Side_tile], None)
-silver_lock = Keys(silver_lock, lock, [map.Celler], silver_key)
-gold_lock = Keys(gold_lock, lock, [map.Celler], gold_key)
-gray_lock = Keys(gray_lock, lock, [map.Celler_entrence], gray_key)
+#add where house and ofice location
+#silver_key = Keys('silver_key', 'key', [map.Ware_house], None )
+#golden_key = Keys('gold_key', 'key', [map.Office], None)
+gray_key = Keys('gray_key', 'key', (0, 1), None)
+#silver_lock = Keys('silver_lock', 'lock', [map.Celler], silver_key)
+#golden_lock = Keys('gold_lock', 'lock', [map.Celler], golden_key)
+#gray_lock = Keys('gray_lock', 'lock', [map.Celler_entrence], gray_key)
 
     
 
