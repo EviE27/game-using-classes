@@ -8,12 +8,11 @@
 # move and seach
 
 class Player():
-    #Dora = player(0,0)
+    """this class works with player movement """
     
     def __init__(self, x, y):
         self.y = y
         self.x = x
-        self.inventory = []
         self.victory = False
 
     

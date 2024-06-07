@@ -8,48 +8,70 @@
 
 
 #class Keys():
-#from map import Celler_entrence
-import map
 
+# holds players items they colect in the game
+Inventory = []
 
 class Keys():
-    #port_map = map.Map()
-    def __init__(self, name, type, x, key):
+    """make keys and lock for the game, that the player needs to use to comple
+the game."""
+    
+    def __init__(self, name, type, x, y, key):
         self.name = name
         self.type = type
         self.key = key
         self.x = x
-        
-
-    def take(self):
-        if self.type == 'key':
-            self.location = None
-            #my_bag.append(self.name)
-
-#add where house and ofice location
-#silver_key = Keys('silver_key', 'key', [map.Ware_house], None )
-#golden_key = Keys('gold_key', 'key', [map.Office], None)
-gray_key = Keys('gray_key', 'key', (0, 1), None)
-#silver_lock = Keys('silver_lock', 'lock', [map.Celler], silver_key)
-#golden_lock = Keys('gold_lock', 'lock', [map.Celler], golden_key)
-#gray_lock = Keys('gray_lock', 'lock', [map.Celler_entrence], gray_key)
-
-    
+        self.y = y
 
 
+#Made keys, assigned location, 
+silver_key = Keys('silver_key', 'key', 1, 1, None)
+golden_key = Keys('gold_key', 'key', 3, 1, None)
 
+
+# this is the location of the objects
 
 class Locks(Keys):
+
     
+    def __init__(self, name, type, x, y, key, room_open):
+        
+        self.room_open = room_open
+        self.name = name
+        self.type = type
+        self.key = key
+        self.x = x
+        self.y = y
     
-    def unlocked(self,):
-        unlock = False
-       # if self.type == lock:
-            #if self.key in player.my_bag():
-               # unlock = True
+   
+    
+
+#silver_lock = Keys('silver_lock', 'lock', 1, 2, silver_key)
+golden_lock = Locks('gold_lock', 'lock', 3, 2, golden_key, False)
+silver_lock = Locks('silver_lock', 'lock', 1, 2, silver_key, None)
+
+
+
+key_lock_map = [["Nothing", "Nothing", "Nothing", "Nothing"],
+                ["Nothing", 'silver_key', "Nothing", 'golden_key'],
+                ["Nothing", "silver_lock", "Nothing", "golden_lock"]
+    ]
+
+key_map = [["Nothing", "Nothing", "Nothing", "Nothing"],
+            ["Nothing", silver_key, "Nothing", golden_key],
+            ["Nothing", "silver_lock", "Nothing", "golden_lock"]
+]
+    
+lock_map = [["Nothing", "Nothing", "Nothing", "Nothing"],
+            ["Nothing", "Nothing", "Nothing", "Nothing"],
+            ["Nothing", 'silver_lock', "Nothing",'golden_lock']
+]
 
         
-        
+lock_map1 = [["Nothing", "Nothing", "Nothing", "Nothing"],
+            ["Nothing", "Nothing", "Nothing", "Nothing"],
+            ["Nothing", silver_lock, "Nothing", golden_lock]
+]
 
  
 
